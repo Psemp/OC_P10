@@ -1,0 +1,42 @@
+{% extends 'research/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <header class="page-section product-header" style="background-image: url({{ user.profile.picture.url }}) !important; background-repeat: no-repeat;background-position: center; background-color: black; margin-top: 3rem !important ;">
+    </header>
+    <section class="page-section">
+        <div class="container">
+            <div class="col text-center">
+                <h2 class="text-black mt-0">{{ user.username }}</h2>
+                <h4 class="text-secondary text-center">{{ user.email }}</h4>
+            </div>
+        </div>
+        <hr class="divider my-4">
+        <div class="container">
+            <div class="col md-6 text-center">
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#info">Modifier ma photo</button>
+                <div id="info" class="collapse">
+                    <br>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            {{ p_form }}
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn-outline-info" type="submit">Mettre à jour</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <hr class="divider my-4">
+        <div class="container">
+            <div class="col text-center">
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#fav">Mes Favoris</button>
+                <div id="fav" class="collapse">
+                    <hr class="divider my-4">
+                    {% include 'research/list.html' %}
+                </div>
+            </div>
+          </div>
+    </section>
+{% endblock content %}

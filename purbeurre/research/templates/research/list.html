@@ -1,0 +1,22 @@
+{% load static %}
+{% if product|length_is:"0" %}
+    <div class="text-center">
+        Aucun resultat corresponant a votre recherche
+    </div>
+
+{% else %}
+    <div class="row">
+    {% for product in products %}
+        <div class="col-md-4 text-center">
+            <a href="{% url 'detail' product_id=product.barcode %}">
+              <img class="img-responsive img-listing" src="{{ product.picture_url }}" alt="{{ product.name }}"><br>
+              <img src="{% static 'research/assets/nutricon/' %}{{product.nutriscore}}.svg" alt="nutriscore" />
+            </a>
+            <h5><a href="{% url 'detail' product_id=product.barcode %}">{{ product.name }}</a></h5>
+                <p>{{ product.brand }}</p>
+        </div>
+        {% if forloop.counter|divisibleby:3 %}<div class="row"></div>{% endif %}
+    {% endfor %}
+    </div>
+
+{% endif %}

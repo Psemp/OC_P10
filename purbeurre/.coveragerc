@@ -1,0 +1,25 @@
+[coverage:run]
+source = .
+
+omit = 
+    */node_modules/*
+    manage.py
+    account/models.py
+    products/models.py
+    research/models.py
+    */migrations/*
+    */management/*
+    */__init__.py/*
+
+[report]
+omit = 
+   */node_modules/*
+    manage.py
+    account/models.py
+    products/models.py
+    research/models.py
+    */migrations/*
+    */tests.py
+    */__init__.py/*
+    purbeurre/wsgi.py
+    purbeurre/asgi.py

@@ -1,0 +1,13 @@
+{% extends 'research/base.html' %}
+{% block content %}
+    <section class="page-section">
+        <div class="container">
+            <h2>Vous avez bien été déconnecté</h2>
+                <div class="content-section">
+                    <div class="border-top pt-3">
+                        <small class="text-muted">Se reconnecter ?<a class="ml-2" href="{% url 'login' %}">Se connecter</a></small>
+                    </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %} 
