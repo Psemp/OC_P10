@@ -1,5 +1,3 @@
-# Server only files
-*/production.py
 
 # Coverage files
 */.coveragerc
@@ -121,3 +119,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#Server specific files
+purbeurre/purbeurre/settings/production.py
