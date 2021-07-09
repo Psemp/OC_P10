@@ -1,3 +1,6 @@
+# Server only files
+*/production.py
+
 # Coverage files
 */.coveragerc
 
