@@ -1,3 +1,9 @@
+# Coverage files
+*/.coveragerc
+
+# Multimedia files used in dev / sitebuilding / photoshop
+Media_files/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
