@@ -35,7 +35,7 @@ class Command(BaseCommand):
         for category in cat_obj_list:
             page_api = 1
 
-            while page_api < 2:  # (category.amount/20):  # +/- 20 products per page
+            while page_api < 5 and page_api < (category.amount/20):  # +/- 20 products per page
                 # We limit the number of pages searched otherwise it will be still running by the next ice age
                 formatted_url = category.url + f'/{page_api}.json'
                 r = requests.get(formatted_url)
