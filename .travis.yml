@@ -6,7 +6,7 @@ before_script:
   - pip install -r requirements.txt
   - wget http://chromedriver.storage.googleapis.com/2.24/chromedriver_linux64.zip
   - ls /home/travis/virtualenv/
-  - unzip chromedriver_linux64.zip -d /home/travis/virtualenv/python3.9.2/bin/
+  - unzip chromedriver_linux64.zip -d /home/travis/virtualenv/python3.9.1/bin/
   - export CHROME_BIN=chromium-browser
   
 
