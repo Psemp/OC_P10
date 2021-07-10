@@ -15,4 +15,4 @@ services:
   - postresql
 
 script:
-  - python ./purbeurre/manage.py test
+  - ./purbeurre/manage.py test
