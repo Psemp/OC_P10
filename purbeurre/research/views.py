@@ -16,8 +16,21 @@ def compare(request, product_id):
     user_product = get_object_or_404(Product, pk=product_id)
     cat_set = get_product_categories(user_product)
     similar_products = get_similar_prod(cat_set)
-    products = compare_products(user_product, similar_products)
+    prod_list = compare_products(user_product, similar_products)
     title = f"Produits plus sain que {user_product.name}"
+
+    paginator = Paginator(prod_list, 9)
+    page = request.GET.get('page')
+
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        products = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        products = paginator.page(paginator.num_pages)
+
     context = {
         "products": products,
         "title": title
