@@ -16,4 +16,6 @@ services:
   - postresql
 
 script:
+  - python purbeurre/manage.py makemigrations
+  - python purbeurre/manage.py migrate
   - python purbeurre/manage.py test
