@@ -1,4 +1,6 @@
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, get_object_or_404
+
 from .script.compare import get_product_categories, get_similar_prod
 from .script.compare import compare_products
 from .models import Product
@@ -27,17 +29,31 @@ def compare(request, product_id):
 def search(request):
     query = request.GET.get('query')
     if not query:
-        products = -1
+        prod_list = -1
     else:
-        products = Product.objects.filter(name__icontains=query)
-    if not products.exists():
-        products = Product.objects.filter(brand__icontains=query)
+        prod_list = Product.objects.filter(name__icontains=query)
+    if not prod_list.exists():
+        prod_list = Product.objects.filter(brand__icontains=query)
 
     title = f"Produits correspondants à {query}"
+    user_query = f"?query={query}"
+
+    paginator = Paginator(prod_list, 9)
+    page = request.GET.get('page')
+
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        products = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        products = paginator.page(paginator.num_pages)
 
     context = {
         'products': products,
-        'title': title
+        'title': title,
+        'user_query': user_query
     }
 
     return render(request, 'research/search.html', context)
