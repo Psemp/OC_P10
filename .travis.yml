@@ -16,4 +16,4 @@ services:
   - postresql
 
 script:
-  - python manage.py test
+  - python purbeurre/manage.py test
