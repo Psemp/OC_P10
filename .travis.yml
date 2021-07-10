@@ -2,20 +2,14 @@ sudo: required
 
 language: python
 
-addons:
-    chrome: stable
-
-dist: trusty
-
 python:
   - '3.9'
 
 before_script:
   - pip install -r requirements.txt
-  - wget https://chromedriver.storage.googleapis.com/91.0.4472.101/chromedriver_linux64.zip
-  - ls /home/travis/virtualenv/
-  - unzip chromedriver_linux64.zip -d /home/travis/virtualenv/python3.9.1/bin/
-  - export CHROME_BIN=chromium-browser
+#  - wget https://chromedriver.storage.googleapis.com/91.0.4472.101/chromedriver_linux64.zip
+#  - unzip chromedriver_linux64.zip -d /home/travis/virtualenv/python3.9.1/bin/
+#  - export CHROME_BIN=chromium-browser
   
 
 branches:
