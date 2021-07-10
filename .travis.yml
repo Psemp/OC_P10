@@ -5,6 +5,8 @@ language: python
 addons:
     chrome: stable
 
+dist: trusty
+
 python:
   - '3.9'
 
