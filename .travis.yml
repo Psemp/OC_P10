@@ -1,13 +1,20 @@
+sudo: required
+
 language: python
+
 python:
   - '3.9'
 
 before_script:
-  pip install -r requirements.txt
+  - pip install -r requirements.txt
+#  - wget https://chromedriver.storage.googleapis.com/91.0.4472.101/chromedriver_linux64.zip
+#  - unzip chromedriver_linux64.zip -d /home/travis/virtualenv/python3.9.1/bin/
+#  - export CHROME_BIN=chromium-browser
+  
 
 branches:
   only:
-    -staging
+    - staging
 
 env: DJANGO_SETTINGS_MODULE="purbeurre.settings.travis"
 
@@ -15,4 +22,5 @@ services:
   - postresql
 
 script:
-  - ./manage.py test
+  - cd purbeurre
+  - python manage.py test

@@ -16,5 +16,3 @@
    <u>Template :</u> https://blackrockdigital.github.io/startbootstrap-creative/
 
    <u>Wallpaper :</u> Kawin Harasai https://unsplash.com/photos/k60JspcBwKE
-
-modification to trigger travis
