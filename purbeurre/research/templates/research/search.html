@@ -7,5 +7,17 @@
     </div>
     <hr class="divider my-4">
     {% include 'research/list.html' with list_title=title %}
+    <div class="justify-content-center">
+        <nav aria-label="...">
+            <ul class="list-inline mx-auto justify-content-center pagination">
+                {% if products.has_previous %}
+                    <li class="page-item"><a class="page-link" href="{{ request.path }}{{ user_query }}&page={{ products.previous_page_number }}">Précédent</a></li>
+                {% endif %}
+                {% if products.has_next %}
+                    <li class="page-item"><a class="page-link" href="{{ request.path }}{{ user_query }}&page={{ products.next_page_number }}">Suivant</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div> 
 </section>
 {% endblock %}
