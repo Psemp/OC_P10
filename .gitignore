@@ -122,3 +122,4 @@ dmypy.json
 
 #Server specific files
 purbeurre/purbeurre/settings/production.py
+purbeurre/purbeurre/settings/sentry_settings.py

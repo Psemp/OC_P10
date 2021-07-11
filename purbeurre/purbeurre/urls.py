@@ -20,8 +20,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 from research import views as research_views
 from account import views as ac_views
-
 #  from products import views as product_views
+
+###
+# Trigger error for sentry
+###
+
+def trigger_error(request):
+    divion_by_zero = 1 / 0
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,6 +41,7 @@ urlpatterns = [
     path('compare/', include('research.urls')),
     path('search/', research_views.search, name='search'),
     path('mentions_legales/', research_views.legal, name='legal'),
+    path('sentry-debug/', trigger_error),
 ]
 
 if settings.DEBUG:  # FOR TEST PURPOSE, REMOVE FOR PROPER ERROR HANDLING AND DEPLOYMENT
