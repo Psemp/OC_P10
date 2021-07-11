@@ -1,5 +1,13 @@
+import logging
 import sentry_sdk
+from sentry_sdk.integrations.logging import LoggingIntegration
 from sentry_sdk.integrations.django import DjangoIntegration
+
+
+sentry_logging = LoggingIntegration(
+    level=logging.INFO,        # Capture info and above as breadcrumbs
+    event_level=logging.ERROR  # Send errors as events
+)
 
 sentry_sdk.init(
     dsn="https://d63bd79d8cf14c9e9aa592f4633bca77@o916582.ingest.sentry.io/5858313",
