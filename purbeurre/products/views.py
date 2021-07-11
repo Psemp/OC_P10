@@ -1,8 +1,12 @@
+import logging
 from django.shortcuts import get_object_or_404
 from research.models import Product
 from account.models import Profile
 from django.views.generic.base import TemplateView
-# from django.contrib.auth.models import User
+
+# Logger
+
+logger = logging.getLogger(__name__)
 
 
 class ProductView(TemplateView):
@@ -32,4 +36,8 @@ class ProductView(TemplateView):
         user_profile = get_object_or_404(Profile, user_id=user_pk)
         user_profile.favorite.add(product_id)
         user_profile.save()
+        logger.info('New favorite', exc_info=True, extra={
+                # Optionally pass a request and we'll grab any information we can
+                'request': request,
+            })
         return self.get(request, *args, **kwargs)

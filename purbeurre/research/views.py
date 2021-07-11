@@ -1,11 +1,17 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, get_object_or_404
+import logging
 
 from .script.compare import get_product_categories, get_similar_prod
 from .script.compare import compare_products
 from .models import Product
 
+# Logger
+
+logger = logging.getLogger(__name__)
+
 # Create your views here.
+
 
 def index(request):
     return render(request, 'research/index.html')
@@ -34,6 +40,11 @@ def compare(request, product_id):
         "products": products,
         "title": title
     }
+
+    logger.info('New comparison', exc_info=True, extra={
+        # Optionally pass a request and we'll grab any information we can
+        'request': request,
+    })
 
     return render(request, 'research/compare.html', context)
 
@@ -67,6 +78,11 @@ def search(request):
         'title': title,
         'user_query': user_query
     }
+
+    logger.info('New research', exc_info=True, extra={
+        # Optionally pass a request and we'll grab any information we can
+        'request': request,
+    })
 
     return render(request, 'research/search.html', context)
 

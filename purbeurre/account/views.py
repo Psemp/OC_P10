@@ -2,8 +2,13 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+import logging
 from .forms import UserRegisterForm, ProfileUpdateForm
 from .models import Profile
+
+# Logger
+
+logger = logging.getLogger(__name__)
 
 # Create your views here.
 
@@ -15,6 +20,10 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Merci {username}, votre compte a été créé avec succés, vous pouvez maintenant vous connecter')
+            logger.info('New user', exc_info=True, extra={
+                # Optionally pass a request and we'll grab any information we can
+                'request': request,
+            })
             return redirect('login')
     else:
         form = UserRegisterForm()
