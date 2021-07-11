@@ -9,4 +9,4 @@ sentry_sdk.init(
 
     send_default_pii=True
 
- )
+)

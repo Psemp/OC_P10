@@ -125,3 +125,4 @@ purbeurre/purbeurre/settings/production.py
 purbeurre/purbeurre/settings/sentry_settings.py
 purbeurre/purbeurre/settings/sentry_setup.py
 purbeurre/purbeurre/settings/sentry_setup.py
+*/sentry_setup.py
