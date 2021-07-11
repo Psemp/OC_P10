@@ -11,7 +11,7 @@ sentry_logging = LoggingIntegration(
 
 sentry_sdk.init(
     dsn="https://d63bd79d8cf14c9e9aa592f4633bca77@o916582.ingest.sentry.io/5858313",
-    integrations=[DjangoIntegration()],
+    integrations=[DjangoIntegration(), sentry_logging],
 
     traces_sample_rate=1.0,
 
