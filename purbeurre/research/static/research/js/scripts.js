@@ -59,5 +59,6 @@
       tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
     }
   });
+  $('.collapse').collapse();
 
 })(jQuery); // End of use strict

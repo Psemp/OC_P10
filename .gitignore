@@ -1,4 +1,3 @@
-
 # Coverage files
 */.coveragerc
 
@@ -102,6 +101,8 @@ ENV/
 env.bak/
 venv.bak/
 
+#Mac Stuff
+.DS_Store
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -126,3 +127,4 @@ purbeurre/purbeurre/settings/sentry_settings.py
 purbeurre/purbeurre/settings/sentry_setup.py
 purbeurre/purbeurre/settings/sentry_setup.py
 */sentry_setup.py
+.vscode/settings.json
